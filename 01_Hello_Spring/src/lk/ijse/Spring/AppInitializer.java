@@ -51,6 +51,9 @@ public class AppInitializer {
         DBConnection connection = (DBConnection) ctx.getBean("DBConnection");
         System.out.println(connection);
 
-        ctx.close();
+        ctx.registerShutdownHook();
+
+        Customer bean = ctx.getBean(Customer.class);
+        System.out.println(bean);
     }
 }
